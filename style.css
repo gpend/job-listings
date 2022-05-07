@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background-image: url("./images/bg-header-mobile.svg");
+    background-color: aqua;
+    height: 200px;
+    background-size: cover;
+    /* width: 100vw; */
+}
+
+.job{
+    background-color: white;
+}
