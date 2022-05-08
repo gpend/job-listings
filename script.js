@@ -19,7 +19,11 @@ function getJobHTML(data){
             `
             <div class="job">
                 <img class="job--logo" src=${job.logo}></img>
-                <p class="job--company ${job.new && "new"} ${job.featured && "featured"}">${job.company}</p>
+                <div class="job--company_details">
+                    <p class="job--company">${job.company}</p>
+                    ${job.new ? '<p class= "job--company__new">new</p>' : ""} 
+                    ${job.featured ? '<p class= "job--company__featured">featured</p>' : ""}
+                </div>
                 <p class="job--position">${job.position}</p>
                 <p class="job--about">${job.postedAt} . ${job.contract} . ${job.location}</p>
                 <hr>

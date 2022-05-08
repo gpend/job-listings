@@ -12,8 +12,8 @@ body{
 }
 .header{
     background-image: url("./images/bg-header-mobile.svg");
-    background-color: hsl(180, 8%, 52%);
-    height: 200px;
+    background-color: var(--dark-green);
+    height: 150px;
     background-size: cover;
     /* width: 100vw; */
 }
@@ -21,23 +21,47 @@ body{
 .job{
     background-color: white;
     margin: 2em;
+    margin-top: 3em;
     padding: 1em;
     border-radius: 5px;
     box-shadow: 5px 5px 5px hsl(189, 28%, 91%);
     border-left: 5px solid var(--dark-green);
 }
 
+.job--company_details{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
 .job--company{
     font-weight: bold;
+    margin-right: 2rem;
+    color: var(--dark-green);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: .3rem 0;
+}
+
+.job--company__new,
+.job--company__featured{
+    display: inline-block;
+    background-color: var(--Light-Grayish-Cyan);
+    padding: .3rem .75rem;
+    border-radius: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.job--company__featured{
+    margin-left: 1em;
+    background-color: var(--Very-Dark-Grayish-Cyan);
+    color: var(--Light-Grayish-Cyan);
 }
 
 .job--logo{
     margin-top: -3rem;
-    width: 50px;
-}
-
-.job--company{
-    color: var(--Very-Dark-Grayish-Cyan);
+    width: 60px;
 }
 
 .job--languages,
@@ -49,7 +73,7 @@ body{
 .job--tools p{
     margin:.5rem;
     padding: .5rem;
-    background-color: hsl(180, 31%, 95%);
-    color:var(--Very-Dark-Grayish-Cyan);
+    background-color: var(--Light-Grayish-Cyan);
+    color:var(--dark-green);
     
 }
