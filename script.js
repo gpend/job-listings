@@ -17,21 +17,24 @@ function getJobHTML(data){
 
         return(
             `
-            <div class="job">
-                <img class="job--logo" src=${job.logo}></img>
-                <div class="job--company_details">
-                    <p class="job--company">${job.company}</p>
-                    ${job.new ? '<p class= "job--company__new">new</p>' : ""} 
-                    ${job.featured ? '<p class= "job--company__featured">featured</p>' : ""}
+            <div class="job${job.featured ? " featured" : ""}">
+                <div class="job--details">
+                    <img class="job--logo" src=${job.logo}></img>
+                    <div class="job--company_details">
+                        <p class="job--company">${job.company}</p>
+                        ${job.new ? '<p class= "job--company__new">NEW!</p>' : ""} 
+                        ${job.featured ? '<p class= "job--company__featured">FEATURED</p>' : ""}
+                    </div>
+                    <p class="job--position">${job.position}</p>
+                    <p class="job--about">${job.postedAt} · ${job.contract} · ${job.location}</p>
                 </div>
-                <p class="job--position">${job.position}</p>
-                <p class="job--about">${job.postedAt} . ${job.contract} . ${job.location}</p>
-                <hr>
-                <div class="job--languages">
-                    ${langs}
-                </div>
-                <div class="job--tools">
-                    ${tools}
+                <div class= "job--skills">
+                    <div class="job--languages">
+                        ${langs}
+                    </div>
+                    <div class="job--tools">
+                        ${tools}
+                    </div>
                 </div>
             </div>
             `
