@@ -18,13 +18,17 @@ function getJobHTML(data){
         return(
             `
             <div class="job">
-            <img class="job--logo" src=${job.logo}></img>
-            <p class="${job.new && "new"} ${job.featured && "featured"}">${job.company}</p>
-            <p class="job--position">${job.position}</p>
-            <p class="job--about">${job.postedAt} . ${job.contract} . ${job.location}</p>
-            <hr>
-            ${langs}
-            ${tools}
+                <img class="job--logo" src=${job.logo}></img>
+                <p class="job--company ${job.new && "new"} ${job.featured && "featured"}">${job.company}</p>
+                <p class="job--position">${job.position}</p>
+                <p class="job--about">${job.postedAt} . ${job.contract} . ${job.location}</p>
+                <hr>
+                <div class="job--languages">
+                    ${langs}
+                </div>
+                <div class="job--tools">
+                    ${tools}
+                </div>
             </div>
             `
         )

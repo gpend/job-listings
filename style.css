@@ -1,11 +1,18 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: hsl(188, 50%, 97%);
+    background-color: hsl(180, 52%, 96%);
+    --Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
+    --Light-Grayish-Cyan: hsl(180, 52%, 96%);/*  (Background) */
+    --Light-Grayish-Cyan : hsl(180, 31%, 95%); /*(Filter Tablets)*/
+    --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+    --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+    --dark-green: hsl(180, 19%, 55%);
+    font-family: 'League Spartan', sans-serif;
 }
 .header{
     background-image: url("./images/bg-header-mobile.svg");
-    background-color: hsl(180, 19%, 55%);
+    background-color: hsl(180, 8%, 52%);
     height: 200px;
     background-size: cover;
     /* width: 100vw; */
@@ -15,9 +22,34 @@ body{
     background-color: white;
     margin: 2em;
     padding: 1em;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px hsl(189, 28%, 91%);
+    border-left: 5px solid var(--dark-green);
+}
+
+.job--company{
+    font-weight: bold;
 }
 
 .job--logo{
-    margin-top: -2rem;
+    margin-top: -3rem;
     width: 50px;
+}
+
+.job--company{
+    color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.job--languages,
+.job--tools{
+    display: flex;
+}
+
+.job--languages p,
+.job--tools p{
+    margin:.5rem;
+    padding: .5rem;
+    background-color: hsl(180, 31%, 95%);
+    color:var(--Very-Dark-Grayish-Cyan);
+    
 }
