@@ -28,13 +28,11 @@ function getJobHTML(data){
                     <p class="job--position">${job.position}</p>
                     <p class="job--about">${job.postedAt} · ${job.contract} · ${job.location}</p>
                 </div>
-                <div class= "job--skills">
-                    <div class="job--languages">
-                        ${langs}
-                    </div>
-                    <div class="job--tools">
-                        ${tools}
-                    </div>
+                <div class="job--attributes">
+                    <p>${job.role}</p>
+                    <p>${job.level}</p>
+                    ${tools}
+                    ${langs}
                 </div>
             </div>
             `

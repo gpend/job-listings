@@ -78,13 +78,12 @@ body{
     width: 60px;
 }
 
-.job--languages,
-.job--tools{
+.job--attributes{
     display: flex;
+    flex-wrap: wrap;
 }
 
-.job--languages p,
-.job--tools p{
+.job--attributes p{
     margin:.5rem 1rem .5rem 0;
     padding: .5rem;
     background-color: var(--Light-Grayish-Cyan);
@@ -113,7 +112,7 @@ body{
         margin-left: auto;
         margin-right: auto;
     }
-    .job--skills{
+    .job--attributes{
         display: flex;
         flex-direction: row;
         height: 3rem;
