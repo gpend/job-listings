@@ -1,10 +1,39 @@
+let selected = {
+    language: [],
+    tools: []
+}
+
 fetch("./data.json")
 .then(response => response.json())
 .then(data => {
     const jobHTML = getJobHTML(data)
     document.querySelector(".jobs").innerHTML = jobHTML
+    document.querySelectorAll(".job--language").forEach(element => {
+       element.addEventListener("click", (e)=> {
+           selected.language.push(e.target.innerText)
+           console.log(selected)
+        })
+    })
+    document.querySelectorAll(".job--tool").forEach(element => {
+        element.addEventListener("click", (e)=> {
+            selected.tools.push(e.target.innerText)
+            console.log(selected)
+        })
+    })
+    document.querySelectorAll(".job--level").forEach(element => {
+        element.addEventListener("click", (e)=> {
+            selected.level = e.target.innerText
+            console.log(selected)
+        })
+    })
+    document.querySelectorAll(".job--role").forEach(element => {
+        element.addEventListener("click", (e)=> {
+            selected.role = e.target.innerText
+            console.log(selected)
+        })
+    })
+    
 })
-
 function getJobHTML(data){
     return data.map(job =>{
         const langs = job.languages.map(language =>{
@@ -29,8 +58,8 @@ function getJobHTML(data){
                     <p class="job--about">${job.postedAt} · ${job.contract} · ${job.location}</p>
                 </div>
                 <div class="job--attributes">
-                    <p>${job.role}</p>
-                    <p>${job.level}</p>
+                    <p class="job--role">${job.role}</p>
+                    <p class="job--level">${job.level}</p>
                     ${tools}
                     ${langs}
                 </div>
@@ -42,6 +71,7 @@ function getJobHTML(data){
 
 }
 
-// "postedAt": "1d ago",
-//     "contract": "Full Time",
-//     "location": "USA Only",
+
+// document.getElementsByClassName("job--tool").map(element => {
+//     element.addEventListener("click", ()=> {console.log("clicked")})
+// })
