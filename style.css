@@ -8,10 +8,9 @@ body{
     --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
     --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
     --dark-green: hsl(180, 19%, 55%);
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'League Spartan', sans-serif;  
 }
 .header{
-    background-image: url("./images/bg-header-mobile.svg");
     background-color: var(--dark-green);
     height: 150px;
     background-size: cover;
@@ -21,25 +20,27 @@ body{
 
 .selectors{
     position: absolute;
-    width: 75vw;
-    margin-left: auto;
     margin-right: auto;
-    margin-top: -2em;
+    margin-top: -1.5em;
     background-color: white;
-    padding: 1em;
+    padding: 0;
     border-radius: 5px;
     box-shadow: 5px 5px 5px hsla(185, 26%, 91%, 0.66);
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .selector{
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
 }
 
 .selector p{
     margin: .5rem;
+    padding: .5rem;
+    color: var(--Light-Grayish-Cyan);
+    background-color: var(--dark-green);
 }
 
 .jobs{
@@ -121,6 +122,9 @@ body{
 }
 
 @media screen and (max-width: 399px){
+    .header{
+        background-image: url("./images/bg-header-mobile.svg");
+    }
     .job--details{
         border-bottom: 1px solid lightgray;
         margin-bottom: .5rem;
@@ -132,6 +136,12 @@ body{
         background-image: url("./images/bg-header-desktop.svg");
 
     }
+
+    .selectors{
+        width: 78vw;
+        margin-left: 9em;
+    }
+
     .job{
         flex-direction: row;
         justify-content: space-between;
