@@ -9,31 +9,51 @@ fetch("./data.json")
     const jobHTML = getJobHTML(data)
     document.querySelector(".jobs").innerHTML = jobHTML
     document.querySelectorAll(".job--language").forEach(element => {
-       element.addEventListener("click", (e)=> {
-           selected.language.push(e.target.innerText)
-           console.log(selected)
+        element.addEventListener("click", (e)=> {
+            if(!selected.language.includes(e.target.innerText)){
+                selected.language.push(e.target.innerText) 
+                let html = selected.language.map(lang => {
+                    return `<p>${lang}</p>`
+                }).join('')
+
+                document.querySelector(".selector__lang").innerHTML = html
+            }
         })
     })
+
     document.querySelectorAll(".job--tool").forEach(element => {
         element.addEventListener("click", (e)=> {
-            selected.tools.push(e.target.innerText)
-            console.log(selected)
+            
+            if (!selected.tools.includes(e.target.innerText)){ 
+                selected.tools.push(e.target.innerText)
+                let html = selected.tools.map(tool => {
+                    return `<p>${tool}</p>`
+                }).join('')
+
+                document.querySelector(".selector__tool").innerHTML = html
+            }
         })
+            
     })
+
     document.querySelectorAll(".job--level").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.level = e.target.innerText
-            console.log(selected)
-        })
+            let html = `<p>${selected.level}</p>`
+            document.querySelector(".selector__level").innerHTML = html
+        })     
     })
+    
     document.querySelectorAll(".job--role").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.role = e.target.innerText
-            console.log(selected)
-        })
+            console.log(selected.role)
+            let html = `<p>${selected.role}</p>` 
+            document.querySelector(".selector__role").innerHTML = html
+        })   
     })
-    
 })
+
 function getJobHTML(data){
     return data.map(job =>{
         const langs = job.languages.map(language =>{
@@ -49,13 +69,15 @@ function getJobHTML(data){
             <div class="job${job.featured ? " featured" : ""}">
                 <div class="job--details">
                     <img class="job--logo" src=${job.logo}></img>
-                    <div class="job--company_details">
-                        <p class="job--company">${job.company}</p>
-                        ${job.new ? '<p class= "job--company__new">NEW!</p>' : ""} 
-                        ${job.featured ? '<p class= "job--company__featured">FEATURED</p>' : ""}
+                    <div class="job--info">
+                        <div class="job--company_details">
+                            <p class="job--company">${job.company}</p>
+                            ${job.new ? '<p class= "job--company__new">NEW!</p>' : ""}
+                            ${job.featured ? '<p class= "job--company__featured">FEATURED</p>' : ""}
+                        </div>
+                        <p class="job--position">${job.position}</p>
+                        <p class="job--about">${job.postedAt} · ${job.contract} · ${job.location}</p>
                     </div>
-                    <p class="job--position">${job.position}</p>
-                    <p class="job--about">${job.postedAt} · ${job.contract} · ${job.location}</p>
                 </div>
                 <div class="job--attributes">
                     <p class="job--role">${job.role}</p>

@@ -15,7 +15,35 @@ body{
     background-color: var(--dark-green);
     height: 150px;
     background-size: cover;
+    position: relative;
     /* width: 100vw; */
+}
+
+.selectors{
+    position: absolute;
+    width: 75vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2em;
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px hsla(185, 26%, 91%, 0.66);
+    display: flex;
+    flex-direction: row;
+}
+
+.selector{
+    display: flex;
+    flex-direction: row;
+}
+
+.selector p{
+    margin: .5rem;
+}
+
+.jobs{
+    margin-top: 5em;
 }
 
 .job{
@@ -112,6 +140,19 @@ body{
         margin-left: auto;
         margin-right: auto;
     }
+
+    .job--details{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .job--logo{
+        margin-top: .5rem;
+        margin-right: 1rem;
+        width: auto;
+        height: auto;
+    }
+
     .job--attributes{
         display: flex;
         flex-direction: row;
