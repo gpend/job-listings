@@ -16,7 +16,11 @@ fetch("./data.json")
             if(!selected.language.includes(e.target.innerText)){
                 selected.language.push(e.target.innerText) 
                 let html = selected.language.map(lang => {
-                    return `<p>${lang} <span class="close_x">X</span></p>`
+                    return `
+                        <div class="selector__block">
+                            <div class="selector__block--text">${lang}</div>
+                            <div class="close_x">X</div>
+                        </div>`
                 }).join('')
 
                 document.querySelector(".selector__lang").innerHTML = html
@@ -31,7 +35,11 @@ fetch("./data.json")
             if (!selected.tools.includes(e.target.innerText)){ 
                 selected.tools.push(e.target.innerText)
                 let html = selected.tools.map(tool => {
-                    return `<p>${tool} <span class="close_x">X</span></p>`
+                    return `
+                        <div class="selector__block">
+                            <div class="selector__block--text">${tool}</div>
+                            <div class="close_x">X</div>
+                        </div>`
                 }).join('')
 
                 document.querySelector(".selector__tool").innerHTML = html
@@ -44,7 +52,11 @@ fetch("./data.json")
     document.querySelectorAll(".job--level").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.level = e.target.innerText
-            let html = `<p>${selected.level} <span class="close_x">X</span></p>`
+            let html = `
+                <div class="selector__block">
+                    <div class="selector__block--text">${selected.level}</div>
+                    <div class="close_x">X</div>
+                </div>`
             document.querySelector(".selector__level").innerHTML = html
         })     
     })
@@ -54,7 +66,11 @@ fetch("./data.json")
         element.addEventListener("click", (e)=> {
             selected.role = e.target.innerText
             console.log(selected.role)
-            let html = `<p>${selected.role} <span class="close_x">X</span></p>` 
+            let html = `
+                <div class="selector__block">
+                    <div class="selector__block--text">${selected.role}</div>
+                    <div class="close_x">X</div>
+                </div>`
             document.querySelector(".selector__role").innerHTML = html
         })   
     })

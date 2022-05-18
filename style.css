@@ -31,7 +31,7 @@ body{
     width: 80vw;
     margin-top: -6.5em;
     background-color: white;
-    padding: .5rem .25rem;
+    padding: 0 .25rem;
     border-radius: 5px;
     box-shadow: 5px 5px 5px hsla(185, 26%, 91%, 0.66);
     display: flex;
@@ -39,25 +39,24 @@ body{
     flex-wrap: wrap;
 }
 
-.selector{
+.selector__block{
+    margin: 0.5rem .25rem;
     display: flex;
     flex-direction: row;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
-.selector p{
-    margin: 0 .25rem;
-    padding: .5rem 0 .5rem .5rem;
+.selector__block--text{
+    padding: .5rem;
     color: var(--dark-green);
     background-color:var(--Light-Grayish-Cyan);
-    border-radius: 5px;
 }
 
 .close_x{
-    margin: .5rem 0 .5rem 0;
     padding: .5rem;
     color: var(--Light-Grayish-Cyan);
     background-color: var(--dark-green);
-    border-radius: 5px;
 }
 
 .jobs{
