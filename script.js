@@ -6,14 +6,17 @@ let selected = {
 fetch("./data.json")
 .then(response => response.json())
 .then(data => {
+    //display the jobs in separate cards
     const jobHTML = getJobHTML(data)
     document.querySelector(".jobs").innerHTML = jobHTML
+
+    //add language to the job and add it to selected  state and to the header on click
     document.querySelectorAll(".job--language").forEach(element => {
         element.addEventListener("click", (e)=> {
             if(!selected.language.includes(e.target.innerText)){
                 selected.language.push(e.target.innerText) 
                 let html = selected.language.map(lang => {
-                    return `<p>${lang}</p>`
+                    return `<p>${lang} <span class="close_x">X</span></p>`
                 }).join('')
 
                 document.querySelector(".selector__lang").innerHTML = html
@@ -21,13 +24,14 @@ fetch("./data.json")
         })
     })
 
+    //add tool to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--tool").forEach(element => {
         element.addEventListener("click", (e)=> {
             
             if (!selected.tools.includes(e.target.innerText)){ 
                 selected.tools.push(e.target.innerText)
                 let html = selected.tools.map(tool => {
-                    return `<p>${tool}</p>`
+                    return `<p>${tool} <span class="close_x">X</span></p>`
                 }).join('')
 
                 document.querySelector(".selector__tool").innerHTML = html
@@ -36,24 +40,27 @@ fetch("./data.json")
             
     })
 
+    //add level to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--level").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.level = e.target.innerText
-            let html = `<p>${selected.level}</p>`
+            let html = `<p>${selected.level} <span class="close_x">X</span></p>`
             document.querySelector(".selector__level").innerHTML = html
         })     
     })
     
+    //add role to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--role").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.role = e.target.innerText
             console.log(selected.role)
-            let html = `<p>${selected.role}</p>` 
+            let html = `<p>${selected.role} <span class="close_x">X</span></p>` 
             document.querySelector(".selector__role").innerHTML = html
         })   
     })
 })
 
+//function to create the html for a job
 function getJobHTML(data){
     return data.map(job =>{
         const langs = job.languages.map(language =>{
