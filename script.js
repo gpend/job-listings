@@ -65,7 +65,6 @@ fetch("./data.json")
     document.querySelectorAll(".job--role").forEach(element => {
         element.addEventListener("click", (e)=> {
             selected.role = e.target.innerText
-            console.log(selected.role)
             let html = `
                 <div class="selector__block">
                     <div class="selector__block--text">${selected.role}</div>
