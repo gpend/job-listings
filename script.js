@@ -60,31 +60,31 @@ function displayJobs (data){
     //add language to the job and add it to selected  state and to the header on click
     document.querySelectorAll(".job--language").forEach(element => {
         // @ts-ignore
-        element.addEventListener("click", (e)=> {handleJobClickMulti(e.target.innerText, 'language')})
+        element.addEventListener("click", (e)=> {handleJobClickMulti(e.target.innerText, 'language', data)})
     })
 
     //add tool to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--tool").forEach(element => {
         // @ts-ignore
-        element.addEventListener("click", (e)=> {handleJobClickMulti(e.target.innerText, 'tool')})
+        element.addEventListener("click", (e)=> {handleJobClickMulti(e.target.innerText, 'tool', data)})
             
     })
 
     //add level to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--level").forEach(element => {
         // @ts-ignore
-        element.addEventListener("click", (e)=> {handleJobClick(e.target.innerText, 'level')})     
+        element.addEventListener("click", (e)=> {handleJobClick(e.target.innerText, 'level', data)})     
     })
     
     //add role to the job and add it to selected and to the header on click
     document.querySelectorAll(".job--role").forEach(element => {
         // @ts-ignore
-        element.addEventListener("click", (e)=> {handleJobClick(e.target.innerText, 'role')})   
+        element.addEventListener("click", (e)=> {handleJobClick(e.target.innerText, 'role', data)})   
     })
 
 }
 
-function handleJobClick(text,type){
+function handleJobClick(text,type, data){
 
     selected[type] = text
     let html = `
@@ -99,7 +99,7 @@ function handleJobClick(text,type){
     //displayJobs(data)
 }
 
-function handleJobClickMulti(text, type){
+function handleJobClickMulti(text, type, data){
     if (!selected[type].includes(text)){ 
         selected[type].push(text)
         let html = selected[type].map(text => {
@@ -111,9 +111,14 @@ function handleJobClickMulti(text, type){
         }).join('')
 
         document.querySelector(`.selector__${type}`).innerHTML = html
+        
+        displayJobs(filterData(data, text, type))
     }
 }
 
-function filterData(){
-
+function filterData(data, text, type){
+    type === 'language' ? type='languages' : ""
+    type === 'tool' ? type='tools' : ""
+    const filteredData = data.filter(job => job[type].includes(text))
+    return filteredData
 }
