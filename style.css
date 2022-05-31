@@ -1,13 +1,13 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: hsl(180, 52%, 96%);
     --Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
-    --Light-Grayish-Cyan: hsl(180, 52%, 96%);/*  (Background) */
-    --Light-Grayish-Cyan : hsl(180, 31%, 95%); /*(Filter Tablets)*/
+    --Light-Grayish-Cyan: hsl(180, 52%, 96%); /* (Background) */
+    --Light-Grayish-Cyan2 : hsl(180, 31%, 95%); /*(Filter Tablets)*/
     --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
     --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
     --dark-green: hsl(180, 19%, 55%);
+    background-color: var(--Light-Grayish-Cyan);
     font-family: 'League Spartan', sans-serif;  
     width:100vw;
 }
@@ -55,7 +55,7 @@ body{
 .selector__block--text{
     padding: .5rem;
     color: var(--dark-green);
-    background-color:var(--Light-Grayish-Cyan);
+    background-color:var(--Light-Grayish-Cyan2);
 }
 
 .close_x{
@@ -146,6 +146,10 @@ body{
 
 .job--attributes p:hover{
     cursor: pointer;
+}
+
+.attribution{
+    margin-top: 3rem;
 }
 
 @media screen and (max-width: 399px){

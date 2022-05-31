@@ -5,8 +5,8 @@ fetch("./data.json")
 .then(data => {
     
     // console.log(data)
-    const filteredData = data
-    displayJobs(filteredData)
+    const filteredData = data  // BUG sub functions are not using all the data
+    displayJobs(filteredData, data)
 })
 
 //takes in {data} and maps over it and create the HTML for each one
@@ -48,10 +48,10 @@ function getJobHTML(data){
 }
 
 //takes {data}, gets the HTML from getJobHTML displays it and adds listeners for the buttons
-function displayJobs (data){
+function displayJobs (filteredData, data){
 
     //display the jobs in separate cards
-    const jobHTML = getJobHTML(data)
+    const jobHTML = getJobHTML(filteredData)
     document.querySelector(".jobs").innerHTML = jobHTML
 
     //add language to the job and add it to selected  state and to the header on click
@@ -93,14 +93,14 @@ function handleJobClick(text, type, data){
     document.querySelector(`.selector__${type}`).innerHTML = html
 
     document.querySelector(`.selector__${type}`).addEventListener("click", () => handleSelectorClose(event, data, text))
-    displayJobs(filterData(data))
+    displayJobs(filterData(data), data)
 }
 
 function handleSelectorClose(e, data, text){
     const classes = e.target.classList
     selected[classes[1]]  = "" //1 is type, 2 is text
     document.querySelector(`.selector__block.${text}`).remove()
-    displayJobs(filterData(data))
+    displayJobs(filterData(data), data)
 }
 
 // function handleJobClickMulti(text, type, data){
