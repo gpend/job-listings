@@ -26,7 +26,7 @@ function getJobHTML(data) {
 
       return `<div class="job${job.featured ? " featured" : ""}">
                 <div class="job--details">
-                    <img class="job--logo" src=${job.logo} alt=${job.company}></img>
+                    <img class="job--logo" src=${job.logo} alt='${job.company}'></img>
                     <div class="job--info">
                         <div class="job--company_details">
                             <p class="job--company">${job.company}</p>
